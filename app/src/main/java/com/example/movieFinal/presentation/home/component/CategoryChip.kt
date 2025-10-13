@@ -1,4 +1,4 @@
-package com.example.cinemana.presentation.home.component
+package com.example.movieFinal.presentation.home.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues

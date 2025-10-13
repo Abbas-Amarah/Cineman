@@ -1,7 +1,6 @@
-package com.example.cinemana
+package com.example.movieFinal
 
 import android.app.Application
-import androidx.compose.runtime.Applier
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

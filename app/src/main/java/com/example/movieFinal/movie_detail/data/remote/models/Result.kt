@@ -1,5 +1,6 @@
 package com.example.cinemana.movie_detail.data.remote.models
 
+import com.example.movieFinal.movie_detail.data.remote.models.AuthorDetails
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

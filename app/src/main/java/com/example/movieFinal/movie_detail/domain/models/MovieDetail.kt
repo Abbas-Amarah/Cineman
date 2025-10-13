@@ -1,6 +1,7 @@
-package com.example.cinemana.movie_detail.domain.models
+package com.example.movieFinal.movie_detail.domain.models
 
 data class MovieDetail(
+    val adult: Boolean,
     val backdropPath: String,
     val genreIds: List<String>,
     val id: Int,
@@ -29,8 +30,8 @@ data class Cast(
     val profilePath: String?,
 ) {
     private val nameParts = name.split(" ", limit = 2)
-    val firstName = nameParts[0]
-    val lastName = nameParts[1]
+    val firstName = nameParts.getOrNull(0)
+    val lastName = nameParts.getOrNull(1)
 }
 
 data class Review(

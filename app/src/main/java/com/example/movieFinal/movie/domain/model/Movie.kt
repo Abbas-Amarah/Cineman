@@ -1,6 +1,7 @@
-package com.example.cinemana.movie.domain.model
+package com.example.movieFinal.movie.domain.model
 
 data class Movie(
+    val adult: Boolean,
     val backdropPath: String,
     val genreIds: List<String>,
     val id: Int,

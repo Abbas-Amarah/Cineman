@@ -1,4 +1,4 @@
-package com.example.cinemana.presentation.home.component
+package com.example.movieFinal.presentation.home.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,12 +8,12 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.cinemana.movie.domain.model.Movie
+import com.example.movieFinal.movie.domain.model.Movie
 
 @Composable
 fun MovieSection(
     movies: List<Movie>,
-    onMovieClick: (Movie) -> Unit,
+    onMovieClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyVerticalGrid(
@@ -26,7 +26,7 @@ fun MovieSection(
         items(movies) { movie ->
             MovieGridItem(
                 movie = movie,
-                onItemClick = onMovieClick
+                onItemClick = { onMovieClick(movie.id) }
             )
         }
     }

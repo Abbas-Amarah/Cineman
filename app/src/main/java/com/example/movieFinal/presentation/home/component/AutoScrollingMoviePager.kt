@@ -1,4 +1,4 @@
-package com.example.cinemana.presentation.home.component
+package com.example.movieFinal.presentation.home.component
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.interaction.collectIsDraggedAsState
@@ -14,7 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.cinemana.movie.domain.model.Movie
+import com.example.movieFinal.movie.domain.model.Movie
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -25,7 +25,7 @@ const val AUTO_SCROLL_DELAY = 4000L
 fun AutoScrollingMoviePager(
     modifier: Modifier = Modifier,
     movies: List<Movie>,
-    onItemClick: (Movie) -> Unit
+    onItemClick: (Int) -> Unit
 ) {
     if (movies.isEmpty()) return
 
@@ -70,7 +70,7 @@ fun AutoScrollingMoviePager(
                 // Passing a simplified genre string for preview purposes.
                 // In a real scenario, you'd resolve this from genre IDs.
                 genres = "Drama, Horror, Mystery & Thriller",
-                onItemClick = { onItemClick(movie) }
+                onItemClick = { onItemClick(movie.id) }
             )
         }
     }

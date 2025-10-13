@@ -1,4 +1,4 @@
-package com.example.cinemana.presentation.home.component
+package com.example.movieFinal.presentation.home.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -27,8 +27,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.cinemana.movie.domain.model.Movie
-import com.example.cinemana.utils.K
+import com.example.movieFinal.movie.domain.model.Movie
+import com.example.movieFinal.utils.K
 import kotlin.math.floor
 
 @Composable

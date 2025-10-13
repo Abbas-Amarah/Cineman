@@ -1,4 +1,4 @@
-package com.example.cinemana.common
+package com.example.movieFinal.common
 
 interface ApiMapper<Domain, Entity> {
 

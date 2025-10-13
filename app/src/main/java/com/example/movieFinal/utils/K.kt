@@ -1,6 +1,6 @@
-package com.example.cinemana.utils
+package com.example.movieFinal.utils
 
-import com.example.cinemana.BuildConfig
+import com.example.jetmovie.BuildConfig
 
 object K {
     const val API_KEY = BuildConfig.API_KEY

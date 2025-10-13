@@ -1,11 +1,11 @@
-package com.example.cinemana.movie_detail.data.mapper_impl
+package com.example.movieFinal.movie_detail.data.mapper_impl
 
-import com.example.cinemana.common.ApiMapper
 import com.example.cinemana.movie_detail.data.remote.models.CastDto
-import com.example.cinemana.movie_detail.data.remote.models.MovieDetailDto
-import com.example.cinemana.movie_detail.domain.models.Cast
-import com.example.cinemana.movie_detail.domain.models.MovieDetail
-import com.example.cinemana.movie_detail.domain.models.Review
+import com.example.movieFinal.movie_detail.data.remote.models.MovieDetailDto
+import com.example.movieFinal.common.ApiMapper
+import com.example.movieFinal.movie_detail.domain.models.Cast
+import com.example.movieFinal.movie_detail.domain.models.MovieDetail
+import com.example.movieFinal.movie_detail.domain.models.Review
 import java.text.SimpleDateFormat
 import java.util.Locale
 import kotlin.collections.map
@@ -40,7 +40,8 @@ class MovieDetailMapperImpl : ApiMapper<MovieDetail, MovieDetailDto> {
                     rating = it?.authorDetails?.rating ?: 0.0
                 )
             } ?: emptyList(),
-            runTime = convertMinutesToHours(apiDto.runtime ?: 0)
+            runTime = convertMinutesToHours(apiDto.runtime ?: 0),
+            adult = apiDto.adult ?: false
         )
 
     }

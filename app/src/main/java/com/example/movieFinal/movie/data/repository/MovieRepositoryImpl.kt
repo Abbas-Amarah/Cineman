@@ -1,13 +1,12 @@
-package com.example.cinemana.movie.data.repository
+package com.example.movieFinal.movie.data.repository
 
-import android.util.Log
-import coil.util.CoilUtils.result
-import com.example.cinemana.common.ApiMapper
-import com.example.cinemana.movie.data.remote.model.MovieDto
-import com.example.cinemana.movie.data.remote.model.api.ApiService
-import com.example.cinemana.movie.domain.model.Movie
-import com.example.cinemana.movie.domain.repository.MovieRepository
+import com.example.movieFinal.common.ApiMapper
+import com.example.movieFinal.movie.data.remote.model.MovieDto
+import com.example.movieFinal.movie.data.remote.model.api.ApiService
+import com.example.movieFinal.movie.domain.model.Movie
+import com.example.movieFinal.movie.domain.repository.MovieRepository
 import com.example.jetmovie.utils.Response
+import com.example.movieFinal.utils.GenreConstants
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -17,9 +16,10 @@ class MovieRepositoryImpl @Inject constructor(
     private val api : ApiService,
     private val mapper: ApiMapper<List<Movie>, MovieDto>
 ) : MovieRepository {
-    override suspend fun fetchDiscoverMovies(): Flow<Response<List<Movie>>> = flow {
+    override suspend fun fetchDiscoverMovies(category: String): Flow<Response<List<Movie>>> = flow {
+        val category = GenreConstants.getGenreIdByName(category)
         emit(Response.Loading())
-        val apiResponse = api.fetchDiscoverMovies()
+        val apiResponse = api.fetchDiscoverMovies(genre = category)
         mapper.mapToDomain(apiResponse).apply {
             emit(Response.Success(this))
         }

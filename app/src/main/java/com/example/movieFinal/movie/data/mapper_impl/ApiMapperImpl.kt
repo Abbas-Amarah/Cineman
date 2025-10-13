@@ -1,10 +1,10 @@
-package com.example.cinemana.movie.data.mapper_impl
+package com.example.movieFinal.movie.data.mapper_impl
 
 import android.util.Log
-import com.example.cinemana.common.ApiMapper
-import com.example.cinemana.movie.data.remote.model.MovieDto
-import com.example.cinemana.movie.domain.model.Movie
-import com.example.jetmovie.utils.GenreConstants
+import com.example.movieFinal.common.ApiMapper
+import com.example.movieFinal.movie.data.remote.model.MovieDto
+import com.example.movieFinal.movie.domain.model.Movie
+import com.example.movieFinal.utils.GenreConstants
 
 class ApiMapperImpl: ApiMapper<List<Movie>, MovieDto>{
     override fun mapToDomain(apiDto: MovieDto): List<Movie> {
@@ -25,6 +25,7 @@ class ApiMapperImpl: ApiMapper<List<Movie>, MovieDto>{
                 voteAverage = result?.voteAverage ?: 0.0,
                 voteCount = result?.voteCount ?: 0,
                 video = result?.video ?: false,
+                adult = result?.adult ?: false
             )
         } ?: emptyList()
     }

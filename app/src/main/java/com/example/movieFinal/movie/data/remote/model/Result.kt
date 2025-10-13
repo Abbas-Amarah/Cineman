@@ -1,4 +1,4 @@
-package com.example.cinemana.movie.data.remote.model
+package com.example.movieFinal.movie.data.remote.model
 
 
 import kotlinx.serialization.SerialName

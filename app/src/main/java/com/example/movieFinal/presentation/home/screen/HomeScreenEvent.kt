@@ -1,3 +1,5 @@
 package com.example.movieFinal.presentation.home.screen
 
-data class HomeScreenEvent()
+sealed class HomeScreenEvent {
+    data class OnCategorySelected(val category: String): HomeScreenEvent()
+}

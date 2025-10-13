@@ -1,22 +1,21 @@
-package com.example.cinemana.di
+package com.example.movieFinal.di
 
-import androidx.compose.ui.input.key.Key
-import com.example.cinemana.common.ApiMapper
-import com.example.cinemana.movie.data.remote.model.api.ApiService
-import com.example.cinemana.movie.data.remote.repository.MovieDetailRepositoryImpl
-import com.example.cinemana.movie_detail.data.mapper_impl.MovieDetailMapperImpl
-import com.example.cinemana.movie_detail.data.remote.api.MovieDetailApiService
-import com.example.cinemana.movie_detail.data.remote.models.MovieDetailDto
-import com.example.cinemana.movie_detail.domain.models.MovieDetail
-import com.example.cinemana.movie_detail.domain.repository.MovieDetailRepository
-import com.example.cinemana.utils.K
+import com.example.movieFinal.movie_detail.data.mapper_impl.MovieDetailMapperImpl
+import com.example.movieFinal.movie_detail.data.remote.models.MovieDetailDto
+import com.example.movieFinal.common.ApiMapper
+import com.example.movieFinal.movie_detail.data.remote.api.MovieDetailApiService
+import com.example.movieFinal.movie_detail.data.repository.MovieDetailRepositoryImpl
+import com.example.movieFinal.movie_detail.domain.models.MovieDetail
+import com.example.movieFinal.movie_detail.domain.repository.MovieDetailRepository
+import com.example.movieFinal.utils.K
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
@@ -24,16 +23,21 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object MovieDetailModule {
 
-    @OptIn(ExperimentalSerializationApi::class)
+    private val json = Json {
+        coerceInputValues = true
+        ignoreUnknownKeys = true
+    }
+
     @Provides
     @Singleton
-    fun provideMovieApi(): ApiService {
+    fun provideMovieApi(): MovieDetailApiService {
+        val contentType = "application/json".toMediaType()
         val retrofit = Retrofit.Builder()
             .baseUrl(K.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
 
-        return retrofit.create(ApiService::class.java)
+        return retrofit.create(MovieDetailApiService::class.java)
     }
 
     @Provides

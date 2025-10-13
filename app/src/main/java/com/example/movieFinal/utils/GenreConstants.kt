@@ -1,4 +1,4 @@
-package com.example.jetmovie.utils
+package com.example.movieFinal.utils
 
 object GenreConstants {
     private val genreMap = mapOf(
@@ -25,5 +25,9 @@ object GenreConstants {
 
     fun getGenreNameById(id: Int): String {
         return genreMap[id] ?: "Unknown"
+    }
+
+    fun getGenreIdByName(name: String): Int {
+        return genreMap.entries.find { it.value.equals(name, ignoreCase = true) }!!.key
     }
 }

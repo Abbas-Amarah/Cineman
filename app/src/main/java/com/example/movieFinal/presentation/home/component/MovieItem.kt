@@ -1,7 +1,5 @@
-package com.example.cinemana.presentation.home.component
+package com.example.movieFinal.presentation.home.component
 
-import android.R.attr.contentDescription
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -40,8 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.cinemana.movie.domain.model.Movie
-import com.example.cinemana.utils.K
+import com.example.movieFinal.movie.domain.model.Movie
+import com.example.movieFinal.utils.K
 import java.util.Locale
 
 @Composable
@@ -189,7 +187,8 @@ private fun MovieItemPreview() {
         title = "Rima",
         video = false,
         voteAverage = 4.7,
-        voteCount = 100
+        voteCount = 100,
+        adult = false
     )
     Box(
         modifier = Modifier

@@ -1,6 +1,12 @@
-package com.example.cinemana.movie_detail.data.remote.models
+package com.example.movieFinal.movie_detail.data.remote.models
 
 
+import com.example.cinemana.movie_detail.data.remote.models.BelongsToCollection
+import com.example.cinemana.movie_detail.data.remote.models.Credits
+import com.example.cinemana.movie_detail.data.remote.models.Genre
+import com.example.cinemana.movie_detail.data.remote.models.ProductionCountry
+import com.example.cinemana.movie_detail.data.remote.models.ReviewsDto
+import com.example.cinemana.movie_detail.data.remote.models.SpokenLanguage
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

@@ -1,9 +1,9 @@
-package com.example.cinemana.presentation.home.screen
+package com.example.movieFinal.presentation.home.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cinemana.movie.domain.repository.MovieRepository
-import com.example.jetmovie.utils.collectAndHandle
+import com.example.movieFinal.movie.domain.repository.MovieRepository
+import com.example.movieFinal.utils.collectAndHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,12 +20,20 @@ class HomeViewModel @Inject constructor(
     val homeState = _homeState.asStateFlow()
 
     init {
-        fetchDiscoverMovies()
+        fetchDiscoverMovies("Action")
         fetchTrendingMovies()
     }
-    fun fetchDiscoverMovies(){
+
+    fun onEvent(event: HomeScreenEvent){
+        when(event){
+            is HomeScreenEvent.OnCategorySelected -> {
+                fetchDiscoverMovies(event.category)
+            }
+        }
+    }
+    fun fetchDiscoverMovies(category: String){
         viewModelScope.launch {
-            repository.fetchDiscoverMovies().collectAndHandle(
+            repository.fetchDiscoverMovies(category).collectAndHandle(
                 onError = { error ->
                     _homeState.update {
                         it.copy(isLoading = false, error = error?.message)

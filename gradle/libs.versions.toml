@@ -1,6 +1,6 @@
 [versions]
-agp = "8.5.0"
-kotlin = "1.9.0"
+agp = "8.13.0"
+kotlin = "2.0.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -18,12 +18,11 @@ navigationCompose = "2.8.2"
 okhttp = "4.12.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
 retrofit = "2.9.0"
-hiltAndroid = "2.49"
-hiltAndroidCompiler = "2.48"
+hiltAndroid = "2.57.1"
+hiltAndroidCompiler = "2.57.1"
 hiltNavigationCompose = "1.2.0"
 coilCompose = "2.5.0"
 coreSplashscreen = "1.0.1"
-
 
 
 [libraries]
@@ -57,8 +56,9 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltA
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 androidx-ui-util = { module = "androidx.compose.ui:ui-util" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationJson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
