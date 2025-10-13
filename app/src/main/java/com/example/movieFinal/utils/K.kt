@@ -1,9 +1,12 @@
-package com.example.jetmovie.utils
+package com.example.cinemana.utils
+
+import com.example.cinemana.BuildConfig
 
 object K {
+    const val API_KEY = BuildConfig.API_KEY
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
-    const val MOVIE_ENDPOINT ="discover/movie"
+    const val DISCOVER_MOVIE_ENDPOINT ="discover/movie"
     const val MOVIE_DETAIL_ENDPOINT ="movie"
     const val MOVIE_ACTOR_ENDPOINT ="person"
     const val TRENDING_MOVIE_ENDPOINT ="trending/movie/week"
