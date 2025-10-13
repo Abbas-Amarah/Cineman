@@ -58,6 +58,3 @@ Planned future improvements include:
 
 ---
 
-## Author
-
-Developed independently by **Abbas Ali Haidar** to demonstrate practical skills and readiness for a professional Android development role.
